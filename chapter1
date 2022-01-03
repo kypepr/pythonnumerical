@@ -1,0 +1,11 @@
+1.3 Managing Packages
+
+Pip is a package manager that automates the process of installing, updating, and removing the packages. 
+It can install packages published on Python Package Index (PyPI).5
+
+1.3.2 INSTALL PACKAGES FROM SOURCE
+
+python setup.py install
+
+1.4 INTRODUCTION TO JUPYTER NOTEBOOK
+
