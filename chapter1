@@ -9,3 +9,126 @@ python setup.py install
 
 1.4 INTRODUCTION TO JUPYTER NOTEBOOK
 
+To completely close a notebook, go to the dashboard, and check the box before the notebook. There is a shutdown option in the toolbar above
+
+
+Chapter 2 : Variable and Basic Data Structure
+
+- special command to list all the variables in notebook : %whos
+
+shortcut in jupyter notebook :
+- change to markdownn : esc+M
+- change to code      : esc + Y
+- open the command pallete  :  ctrl + shift + p
+
+
+STRING
+
+if we have two variables name and country, and we want to print them out in a sentence,we can do the following instead :
+
+1. Preformat string :   print("%s is a great school in %s!"%(name, country))
+2. F-string (formatted string) Python 3.6:  print(f"{name} is a great school in {country}.")
+
+LIST and TUPPLE
+
+Tupple or list can be accessed by unpacking as shown in following example :
+    list_1 = [1, 2, 3]
+    a, b, c = list_1
+    print(a,b,c)
+1 2 1 
+
+SET  :  store an unordered collection with no duplicate elements.
+
+
+DICTIONARY
+
+Get all the keys and values from dict_1.
+In [3]: dict_1.keys()
+Out[3]: dict_keys(["apple", "orange", "pear"])
+In [4]: dict_1.values()
+Out[4]: dict_values([3, 4, 2])
+
+Turn the list of tuples [("UC Berkeley", "USA"), ("Oxford", "UK")] into a dictionary.
+In [8]: dict([("UC Berkeley", "USA"), ("Oxford", "UK")])
+Out[8]: {"UC Berkeley": "USA", "Oxford": "UK"}
+
+
+Determine if "UC Berkeley" is in school_dict.
+In [9]: "UC Berkeley" in school_dict
+Out[9]: True
+
+2.7 INTRODUCING NUMPY ARRAYS
+
+The array **shape** attribute is called on an array M and returns a 2×3 array where the first element is the number of rows in the matrix M; 
+and the second element is the number of columns in M. Note that the output of the shape attribute is a tuple.
+
+The size attribute is called on an array M and returns the total number of elements in matrix M.
+In [4]: y.shape
+Out[4]: (2, 3)
+In [5]: y.size
+Out[5]: 6
+
+Create an array z from 1 to 2000 with an increment 1.
+In [6]: z = np.arange(1, 2000, 1)
+        z
+Out[6]: array([ 1, 2, 3, ... , 1997, 1998, 1999])
+
+
+For instance, we may want an array that starts at 1, ends at 8, and has exactly 10 elements.
+To do this, use the function np.linspace. The function linspace takes three input values separated
+by commas; therefore, A = linspace(a,b,n) generates an array of n equally spaced elements starting
+from a and ending at b.
+
+Use linspace to generate an array starting at 3, ending at 9, and containing 10 elements.
+In [8]: np.linspace(3, 9, 10)
+Out[8]: array([3., 3.66666667, 4.33333333, 5., 5.66666667,6.33333333, 7., 7.66666667, 8.33333333, 9.])
+
+To get access to the data in a 2D array M, we need to use M[r, c]
+
+
+Matrix multiplication (and division)
+1. element by element matrix multiplication   --> using operator *
+2. standard matrix multiplication
+
+
+CHAPTER3  : FUNCTION
+
+A parameter is a variable defined by a function that receives a value when the function is called. 
+An argument is a value that is passed to a method when it is invoked.
+
+y = penjumlahan(a,b)
+  a --> parameter
+y = penjumlahan(5,1)
+  5 --> argument
+
+
+selecting all the lines in the code block and then pressing Tab and Shift+Tab to increase or decrease one level of indentation.
+
+function names should be lowercase, with words separated by underscores as necessary to improve readability.
+
+Define n as the global variable, and then use and change the value n within the
+function.
+In [7]: n = 42
+def func():
+global n
+print(f"Within function: n is {n}")
+n = 3
+print(f"Within function: change n to {n}")
+func()
+print(f"Outside function: Value of n is {n}")
+Within function: n is 42
+Within function: change n to 3
+Outside function: Value of n is 3
+
+3.3 NESTED FUNCTION
+
+3.4 LAMBDA FUNCTIONS
+lambda arguments: expression
+
+
+3.5 FUNCTIONS AS ARGUMENTS TO FUNCTIONS
+
+3.6 SUMMARY AND PROBLEMS
+
+
+
