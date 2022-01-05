@@ -1,0 +1,143 @@
+
+Chapter 7 : Object Oriented Programming
+
+The object-oriented programming breaks the programming task into objects, which combine data
+(known as attributes) and behaviors/functions (known as methods).
+
+Thus, there are two main components of the OOP: class and object.
+
+While class is the blueprint, an object is an instance of the class with actual values.
+
+In [1]: 
+class People():
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+  
+  def greet(self):
+      print("Greetings, " + self.name)
+
+In [2]: 
+
+person1 = People(name = "Iron Man", age = 35)
+person1.greet()
+print(person1.name)
+print(person1.age)
+      Greetings, Iron Man
+      Iron Man
+      35
+      
+7.2 CLASS AND OBJECT
+A class is a definition of the structure that we want.
+An object is an instance of the defined class with actual values
+
+Instance Attributes -->  you need to use the self.attribute within the class
+Class attributes    -->  which will be shared with all the instances created from this class.
+
+Modify the Student class to add a class attribute n, which will record how many
+object we are creating. Also, add a method num_instances to print out the number.
+
+class Student():
+  n = 0
+  def __init__(self, sid, name, gender):
+    self.sid = sid
+    self.name = name
+    self.gender = gender
+    self.type = "learning"
+    Student.n += 1
+ 
+ def say_name(self):
+    print("My name is " + self.name)
+
+def report(self, score):
+    self.say_name()
+    print("My id is: " + self.sid)
+    print("My score is: " + str(score))
+ 
+ def num_instances(self):
+    print(f"We have {Student.n}-instance in total")
+
+
+
+7.3 INHERITANCE, ENCAPSULATION, AND POLYMORPHISM
+
+Inheritance allows us to define a class that inherits all the methods and attributes from another class.
+
+
+7.3.1.1 Inheriting and Extending New Method
+
+class Accelerometer(Sensor):
+  def show_type(self):
+    print("I am an accelerometer!")
+
+acc = Accelerometer("acc1", "Oakland", "2019-02-01")
+acc.show_type()
+
+
+7.3.1.2 Inheriting and Method Overriding
+
+class UCBAcc(Accelerometer):
+  def show_type(self):
+    print(f"I am {self.name}, created at Berkeley!")
+
+acc2 = UCBAcc("UCBAcc", "Berkeley", "2019-03-01")
+acc2.show_type()
+
+I am UCBAcc, created at Berkeley!
+
+7.3.1.3 Inheriting and Updating Attributes With Super
+
+class NewSensor(Sensor):
+  def __init__(self,name,location,record_date,brand):
+    self.name = name
+    self.location = location
+    self.record_date = record_date
+    self.brand = brand
+    self.data = {}
+
+new_sensor = NewSensor("OK", "SF", "2019-03-01", "XYZ")
+new_sensor.brand
+
+Out[5]: "XYZ"
+
+
+EXAMPLE: Redefine the attributes in inheritance.
+
+class NewSensor(Sensor):
+  def __init__(self,name,location,record_date,brand):
+    super().__init__(name, location, record_date)
+    self.brand = brand
+new_sensor = NewSensor("OK", "SF", "2019-03-01", "XYZ")
+new_sensor.brand
+
+Out[6]: "XYZ"
+
+
+7.3.2 ENCAPSULATION
+
+restricting access to methods and attributes in a class
+
+With single underscore, we defined a private variable that should not be accessed directly.
+With double underscores, we can see that the attribute __version cannot be accessed or modified directly.
+
+
+In [7]: 
+class Sensor():
+  def __init__(self, name, location):
+    self.name = name
+    self._location = location
+    self.__version = "1.0"
+
+# a getter function
+  def get_version(self):
+    print(f"The sensor version is {self.__version}")
+
+# a setter function
+  def set_version(self, version)
+    self.__version = version
+
+7.3.3 POLYMORPHISM
+allows the use of a single interface with different underlying forms, such as data types or classes
+
+
+
